@@ -40,16 +40,10 @@ class CalculatorViewController: UIViewController {
   @IBAction func calculatePressed(_ sender: Any) {
        let bill = billTextField.text!
     if bill != "" {
-        
-        //Turn the bill from a String e.g. "123.50" to an actual String with decimal places.
-        //e.g. 125.50
         billTotal = Double(bill)!
-        
-        //Multiply the bill by the tip percentage and divide by the number of people to split the bill.
         let result = billTotal * (1 + tip) / Double(numberOfPeople)
-        
-        //Round the result to 2 decimal places and turn it into a String.
         finalResult = String(format: "%.2f", result)
+      
         self.performSegue(withIdentifier: "goToResults", sender: self)
     }
    
